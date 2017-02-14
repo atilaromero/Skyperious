@@ -23,4 +23,3 @@ RUN     /code/venv/bin/pip install \
 
 # Run
 WORKDIR /code
-CMD     /code/venv/bin/skyperious --help
