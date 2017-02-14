@@ -8,11 +8,9 @@ RUN     apt-get update \
 &&      apt-get install \
             --yes \
             apt-utils \
+            git \
             python-pip \
             virtualenv
-RUN     apt-get install \
-            --yes \
-            python-wxtools
 
 # Python packages
 ADD     requirements.txt /code/requirements.txt

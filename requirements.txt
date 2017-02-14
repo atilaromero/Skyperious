@@ -1,1 +1,1 @@
-skyperious
+-e git://github.com/suurjaak/Skyperious.git#egg=Skyperious

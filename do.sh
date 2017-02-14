@@ -8,9 +8,9 @@ if [ ! -z "${TO_KILL}" ] ; then
 fi
 
 docker build \
+    --quiet \
     --tag "${IMG}" \
     . ;
-    #--quiet \
 docker run \
     --interactive \
     --tty \
