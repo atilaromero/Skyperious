@@ -10,3 +10,5 @@ dist/
 .eggs/
 *.egg-info
 venv/
+main.db
+xfer/

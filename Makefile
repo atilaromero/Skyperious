@@ -1,20 +1,24 @@
-.PHONY: all build run
+.PHONY: all build clean run
 
 IMG = skyperious
 
 all: run
 
-run: build
+run: xfer build
+	@docker run \
+		--interactive \
+		--volume="$(shell pwd)/$<:/code/$<" \
+		--tty \
+		$(IMG)
 
-build: Dockerfile requirements.txt
+build: Dockerfile main.db requirements.txt
 	@docker build \
 		--quiet \
 		--tag $(IMG) \
 		.
 
-run:
-	@docker run \
-		--interactive \
-		--tty \
-		$(IMG) \
-		/bin/bash
+xfer:
+	@mkdir $@
+
+clean:
+	@rm -rf ./xfer/

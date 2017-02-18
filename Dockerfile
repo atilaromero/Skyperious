@@ -21,5 +21,10 @@ RUN     virtualenv \
 RUN     /code/venv/bin/pip install \
             --requirement /code/requirements.txt
 
-# Run
+# Setup
 WORKDIR /code
+COPY    local.sh .
+COPY    main.db .
+
+# Run
+CMD     ./local.sh
