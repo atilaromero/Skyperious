@@ -2,7 +2,16 @@
 
 IMG = skyperious
 
-all: run
+all: build xfer run
+
+build: Dockerfile main.db requirements.txt
+	@docker build \
+		--quiet \
+		--tag $(IMG) \
+		.
+
+clean:
+	@rm -rf ./xfer/
 
 run: xfer build
 	@docker run \
@@ -11,14 +20,5 @@ run: xfer build
 		--tty \
 		$(IMG)
 
-build: Dockerfile main.db requirements.txt
-	@docker build \
-		--quiet \
-		--tag $(IMG) \
-		.
-
 xfer:
 	@mkdir $@
-
-clean:
-	@rm -rf ./xfer/
