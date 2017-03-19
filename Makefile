@@ -1,4 +1,4 @@
-DOCKER_TAG = skyperious
+DOCKER_TAG ?= $(notdir $(shell pwd))
 
 .PHONY: all build clean run
 
