@@ -25,6 +25,3 @@ RUN     /code/venv/bin/pip install \
 WORKDIR /code
 COPY    local.sh .
 COPY    main.db .
-
-# Run
-CMD     ./local.sh
