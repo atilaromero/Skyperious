@@ -28,18 +28,20 @@ run: xfer build
 		--name $(DOCKER_TAG) \
 		--rm \
 		--tty \
-		--volume="$(shell pwd)/$<:/code/$<" \
+		--volume=$<:/code/$< \
 		$(DOCKER_TAG) \
+		/bin/bash -c "\
 		./venv/bin/skyperious export \
 			--verbose \
 			--type html \
-			--$(DB_FILE) &&
+			$(DB_FILE) ; \
 		tar \
 			--create \
 			--verbose \
 			--gzip \
 			--file $(XFER_FILE) \
-			$(shell ls -d Export */)
+			Export*/ ; \
+		"
 
 xfer:
 	@mkdir $@
