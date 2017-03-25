@@ -50,7 +50,7 @@ $(XFER_FILE): docker_run
 	@docker exec \
 		$(DOCKER_TAG) \
 		/bin/bash -c "\
-		./venv/bin/skyperious export \
+		$(VENV)bin/skyperious export \
 			--verbose \
 			--type html \
 			$(DB_FILE) ; \
